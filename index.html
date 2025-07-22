@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crateble - Portfolio Summary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Crateble</h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="#" class="active">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Portfolio Summary</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Transactions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-bell"></i>
+                            <span>Alerts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Portfolio Summary</h1>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <h3>Total Market Value</h3>
+                    <div class="value">$24,589</div>
+                    <div class="change positive">
+                        <i class="fas fa-arrow-up"></i> 12.5% (24h)
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Cost Value</h3>
+                    <div class="value">$18,742</div>
+                    <div class="change positive">
+                        <i class="fas fa-arrow-up"></i> 8.3% (24h)
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Items</h3>
+                    <div class="value">142</div>
+                    <div class="change positive">
+                        <i class="fas fa-plus"></i> 5 new (7d)
+                    </div>
+                </div>
+                <div class="stat-card pulse">
+                    <h3>Most Valuable Item</h3>
+                    <div class="value">Rare Comic #193</div>
+                    <div class="change">
+                        $3,245
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container fade-in">
+                <div class="chart-header">
+                    <h2>Market vs Cost Value Over Time</h2>
+                    <div class="chart-time-filters">
+                        <button class="active">7D</button>
+                        <button>30D</button>
+                        <button>90D</button>
+                        <button>YTD</button>
+                        <button>All</button>
+                    </div>
+                </div>
+                <div id="valueChart" style="height: 300px;"></div>
+            </div>
+
+            <div class="top-items-grid fade-in">
+                <div class="top-items-card">
+                    <div class="top-items-header">
+                        <h2>Items with Most Gains</h2>
+                        <select>
+                            <option>Last 24h</option>
+                            <option>Last 7d</option>
+                            <option>Last 30d</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?toy" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Vintage Toy Set</div>
+                            <div class="top-item-price">$450 → $689</div>
+                        </div>
+                        <div class="top-item-change positive">+53.1%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?comic" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Rare Comic #193</div>
+                            <div class="top-item-price">$2,100 → $3,245</div>
+                        </div>
+                        <div class="top-item-change positive">+54.5%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?baseball" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Signed Baseball</div>
+                            <div class="top-item-price">$780 → $1,120</div>
+                        </div>
+                        <div class="top-item-change positive">+43.6%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?sneakers" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Limited Sneakers</div>
+                            <div class="top-item-price">$320 → $450</div>
+                        </div>
+                        <div class="top-item-change positive">+40.6%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?art" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Art Print #45</div>
+                            <div class="top-item-price">$150 → $210</div>
+                        </div>
+                        <div class="top-item-change positive">+40.0%</div>
+                    </div>
+                </div>
+                <div class="top-items-card">
+                    <div class="top-items-header">
+                        <h2>Items with Most Losses</h2>
+                        <select>
+                            <option>Last 24h</option>
+                            <option>Last 7d</option>
+                            <option>Last 30d</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?card" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Collector Card #7</div>
+                            <div class="top-item-price">$120 → $89</div>
+                        </div>
+                        <div class="top-item-change negative">-25.8%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?figure" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Action Figure</div>
+                            <div class="top-item-price">$65 → $50</div>
+                        </div>
+                        <div class="top-item-change negative">-23.1%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?vinyl" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Vinyl Record</div>
+                            <div class="top-item-price">$45 → $35</div>
+                        </div>
+                        <div class="top-item-change negative">-22.2%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?poster" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Poster Set</div>
+                            <div class="top-item-price">$85 → $70</div>
+                        </div>
+                        <div class="top-item-change negative">-17.6%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?model" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Model Kit</div>
+                            <div class="top-item-price">$55 → $48</div>
+                        </div>
+                        <div class="top-item-change negative">-12.7%</div>
+                    </div>
+                </div>
+                <div class="top-items-card">
+                    <div class="top-items-header">
+                        <h2>Recently Added</h2>
+                        <select>
+                            <option>Last 7d</option>
+                            <option>Last 30d</option>
+                            <option>Last 90d</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?watch" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Limited Edition Watch</div>
+                            <div class="top-item-price">Added 2d ago</div>
+                        </div>
+                        <div class="top-item-change positive">+5.2%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?book" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Rare Book</div>
+                            <div class="top-item-price">Added 3d ago</div>
+                        </div>
+                        <div class="top-item-change positive">+12.1%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?camera" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Vintage Camera</div>
+                            <div class="top-item-price">Added 4d ago</div>
+                        </div>
+                        <div class="top-item-change negative">-2.3%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?coin" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Collector Coin</div>
+                            <div class="top-item-price">Added 5d ago</div>
+                        </div>
+                        <div class="top-item-change positive">+8.7%</div>
+                    </div>
+                    <div class="top-item">
+                        <img src="https://source.unsplash.com/random/80x80/?sculpture" alt="Item" class="top-item-img">
+                        <div class="top-item-info">
+                            <div class="top-item-name">Art Sculpture</div>
+                            <div class="top-item-price">Added 6d ago</div>
+                        </div>
+                        <div class="top-item-change positive">+15.4%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="most-valuable-section fade-in">
+                <div class="section-header">
+                    <h2>Top 10 Most Valuable Items</h2>
+                    <div class="section-header-actions">
+                        <button class="active">Market Value</button>
+                        <button>Gain/Loss</button>
+                    </div>
+                </div>
+                <div class="most-valuable-grid">
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?comic" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Rare Comic #193</div>
+                        <div class="valuable-item-price">$3,245</div>
+                        <div class="valuable-item-change positive">+54.5%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?toy" alt="Item" class="valuable-item-img">
+                        <div class="valuable-item-name">Vintage Toy Set</div>
+                        <div class="valuable-item-price">$689</div>
+                        <div class="valuable-item-change positive">+53.1%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?baseball" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Signed Baseball</div>
+                        <div class="valuable-item-price">$1,120</div>
+                        <div class="valuable-item-change positive">+43.6%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?watch" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Limited Edition Watch</div>
+                        <div class="valuable-item-price">$950</div>
+                        <div class="valuable-item-change positive">+5.2%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?sculpture" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Art Sculpture</div>
+                        <div class="valuable-item-price">$890</div>
+                        <div class="valuable-item-change positive">+15.4%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?sneakers" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Limited Sneakers</div>
+                        <div class="valuable-item-price">$450</div>
+                        <div class="valuable-item-change positive">+40.6%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?book" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Rare Book</div>
+                        <div class="valuable-item-price">$420</div>
+                        <div class="valuable-item-change positive">+12.1%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?coin" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Collector Coin</div>
+                        <div class="valuable-item-price">$380</div>
+                        <div class="valuable-item-change positive">+8.7%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?art" alt="Item" class="valuable-item-img">
+                        <div class="valuable-item-name">Art Print #45</div>
+                        <div class="valuable-item-price">$210</div>
+                        <div class="valuable-item-change positive">+40.0%</div>
+                    </div>
+                    <div class="valuable-item">
+                        <img src="https://source.unsplash.com/random/300x300/?camera" alt="Item"
+                            class="valuable-item-img">
+                        <div class="valuable-item-name">Vintage Camera</div>
+                        <div class="valuable-item-price">$195</div>
+                        <div class="valuable-item-change negative">-2.3%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="items-table-container fade-in">
+                <div class="table-header">
+                    <h2>Full Item Table</h2>
+                    <div class="table-actions">
+                        <div class="filter-buttons">
+                            <button class="active">All</button>
+                            <button>For Sale</button>
+                            <button>Not For Sale</button>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search items...">
+                        </div>
+                        <button class="export-button">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="desktop-table-view">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Item Name</th>
+                                <th>Your Cost</th>
+                                <th>Your Sale Price</th>
+                                <th>Profit %</th>
+                                <th>Lowest For Sale</th>
+                                <th>Highest For Sale</th>
+                                <th>Last Sale Price</th>
+                                <th>Avg Month Price</th>
+                                <th>Potential Profit</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="status-badge for-sale">For Sale</span></td>
+                                <td class="item-name-cell">
+                                    <img src="https://source.unsplash.com/random/80x80/?comic" alt="Item"
+                                        class="item-thumbnail">
+                                    Rare Comic #193
+                                </td>
+                                <td>$2,100</td>
+                                <td>$3,500</td>
+                                <td><span class="profit-badge positive">+66.7%</span></td>
+                                <td>$3,200</td>
+                                <td>$3,800</td>
+                                <td>$3,450</td>
+                                <td>$3,300</td>
+                                <td>$1,200</td>
+                                <td><button class="action-button">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-badge not-for-sale">Not For Sale</span></td>
+                                <td class="item-name-cell">
+                                    <img src="https://source.unsplash.com/random/80x80/?toy" alt="Item"
+                                        class="item-thumbnail">
+                                    Vintage Toy Set
+                                </td>
+                                <td>$450</td>
+                                <td>-</td>
+                                <td><span class="profit-badge positive">+53.1%</span></td>
+                                <td>$650</td>
+                                <td>$720</td>
+                                <td>$689</td>
+                                <td>$670</td>
+                                <td>$220</td>
+                                <td><button class="action-button">List</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-badge for-sale">For Sale</span></td>
+                                <td class="item-name-cell">
+                                    <img src="https://source.unsplash.com/random/80x80/?baseball" alt="Item"
+                                        class="item-thumbnail">
+                                    Signed Baseball
+                                </td>
+                                <td>$780</td>
+                                <td>$1,200</td>
+                                <td><span class="profit-badge positive">+53.8%</span></td>
+                                <td>$1,100</td>
+                                <td>$1,300</td>
+                                <td>$1,120</td>
+                                <td>$1,150</td>
+                                <td>$420</td>
+                                <td><button class="action-button">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-badge not-for-sale">Not For Sale</span></td>
+                                <td class="item-name-cell">
+                                    <img src="https://source.unsplash.com/random/80x80/?watch" alt="Item"
+                                        class="item-thumbnail">
+                                    Limited Edition Watch
+                                </td>
+                                <td>$900</td>
+                                <td>-</td>
+                                <td><span class="profit-badge positive">+5.6%</span></td>
+                                <td>$950</td>
+                                <td>$1,100</td>
+                                <td>$980</td>
+                                <td>$960</td>
+                                <td>$60</td>
+                                <td><button class="action-button">List</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-badge for-sale">For Sale</span></td>
+                                <td class="item-name-cell">
+                                    <img src="https://source.unsplash.com/random/80x80/?sneakers" alt="Item"
+                                        class="item-thumbnail">
+                                    Limited Sneakers
+                                </td>
+                                <td>$320</td>
+                                <td>$470</td>
+                                <td><span class="profit-badge positive">+46.9%</span></td>
+                                <td>$450</td>
+                                <td>$500</td>
+                                <td>$460</td>
+                                <td>$470</td>
+                                <td>$150</td>
+                                <td><button class="action-button">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-badge not-for-sale">Not For Sale</span></td>
+                                <td class="item-name-cell">
+                                    <img src="https://source.unsplash.com/random/80x80/?card" alt="Item"
+                                        class="item-thumbnail">
+                                    Collector Card #7
+                                </td>
+                                <td>$120</td>
+                                <td>-</td>
+                                <td><span class="profit-badge negative">-25.8%</span></td>
+                                <td>$85</td>
+                                <td>$95</td>
+                                <td>$89</td>
+                                <td>$90</td>
+                                <td>-$30</td>
+                                <td><button class="action-button">List</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mobile-table-view">
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Status</span>
+                            <span class="status-badge for-sale">For Sale</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Item</span>
+                            <div class="item-name-cell">
+                                <img src="https://source.unsplash.com/random/80x80/?comic" alt="Item"
+                                    class="item-thumbnail">
+                                Rare Comic #193
+                            </div>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Your Cost</span>
+                            <span>$2,100</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Sale Price</span>
+                            <span>$3,500</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Profit %</span>
+                            <span class="profit-badge positive">+66.7%</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Potential Profit</span>
+                            <span>$1,200</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Status</span>
+                            <span class="status-badge not-for-sale">Not For Sale</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Item</span>
+                            <div class="item-name-cell">
+                                <img src="https://source.unsplash.com/random/80x80/?toy" alt="Item"
+                                    class="item-thumbnail">
+                                Vintage Toy Set
+                            </div>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Your Cost</span>
+                            <span>$450</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Sale Price</span>
+                            <span>-</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Profit %</span>
+                            <span class="profit-badge positive">+53.1%</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Potential Profit</span>
+                            <span>$220</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <button class="action-button">List</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Status</span>
+                            <span class="status-badge for-sale">For Sale</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Item</span>
+                            <div class="item-name-cell">
+                                <img src="https://source.unsplash.com/random/80x80/?baseball" alt="Item"
+                                    class="item-thumbnail">
+                                Signed Baseball
+                            </div>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Your Cost</span>
+                            <span>$780</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Sale Price</span>
+                            <span>$1,200</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Profit %</span>
+                            <span class="profit-badge positive">+53.8%</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <span class="mobile-table-label">Potential Profit</span>
+                            <span>$420</span>
+                        </div>
+                        <div class="mobile-table-row">
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+
+</html>
